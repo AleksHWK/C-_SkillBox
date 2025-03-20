@@ -16,6 +16,7 @@ int main() {
 
 	int totalPassenger = 0;
 	int sum = 0;
+	const int ticketPrice = 20;
 
 	std::cout << "-----Едем-----\n";
 	std::cout << "Прибываем на остановку: " << stop1 << ". В салоне пассажиров: " << passengers << std::endl;
@@ -61,7 +62,7 @@ int main() {
 	std::cout << "-------------\n";
 	std::cout << "Подводим смету за смену!\n";
 
-	sum = totalPassenger * 20;
+	sum = totalPassenger * ticketPrice;
 	std::cout << "Всего заработали: " << sum << " руб" << std::endl;
 	std::cout << "Зарплата водителя: " << sum / 4 << " руб" << std::endl;
 	std::cout << "Расходы на топливо: " << sum / 5 << " руб" << std::endl;
