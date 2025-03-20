@@ -1,0 +1,74 @@
+#include <iostream>
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+
+	std::cout << "Симулятор маршрутки!\n";
+
+	std::string stop1 = "Улица программистов";
+	std::string stop2 = "Улица программистов";
+	std::string stop3 = "Проспект алгоритмов";
+	std::string stop4 = "Конечная";
+	
+	int passengers;
+	std::cout << "\nВведите начальное количество пассажиров: ";
+	std::cin >> passengers;
+
+	int totalPassenger = 0;
+	int sum = 0;
+
+	std::cout << "-----Едем-----\n";
+	std::cout << "Прибываем на остановку: " << stop1 << ". В салоне пассажиров: " << passengers << std::endl;
+
+	std::cout << "Введите количество вышедших пассажиров: ";
+	int exitedPassengers = 0;
+	std::cin >> exitedPassengers;
+
+	std::cout << "Введите количество вошедших пассажиров: ";
+	int arrivalsPassengers = 0;
+	std::cin >> arrivalsPassengers;
+
+	totalPassenger = passengers + arrivalsPassengers;
+	passengers = passengers + arrivalsPassengers - exitedPassengers;
+
+	std::cout << "-----Едем-----\n";
+	std::cout << "Прибываем на остановку: " << stop2 << ". В салоне пассажиров: " << passengers << std::endl;
+
+	std::cout << "Введите количество вышедших пассажиров: ";
+	std::cin >> exitedPassengers;
+
+	std::cout << "Введите количество вошедших пассажиров: ";
+	std::cin >> arrivalsPassengers;
+
+	totalPassenger += arrivalsPassengers;
+	passengers = passengers + arrivalsPassengers - exitedPassengers;
+
+	std::cout << "-----Едем-----\n";
+	std::cout << "Прибываем на остановку: " << stop3 << ". В салоне пассажиров: " << passengers << std::endl;
+
+	std::cout << "Введите количество вышедших пассажиров: ";
+	std::cin >> exitedPassengers;
+
+	std::cout << "Введите количество вошедших пассажиров: ";
+	std::cin >> arrivalsPassengers;
+
+	totalPassenger += arrivalsPassengers;
+	passengers = passengers + arrivalsPassengers - exitedPassengers;
+
+	std::cout << "-----Едем-----\n";
+	std::cout << "Прибываем на остановку: " << stop4 << ". В салоне пассажиров: " << passengers << std::endl;
+
+	std::cout << "-------------\n";
+	std::cout << "Подводим смету за смену!\n";
+
+	sum = totalPassenger * 20;
+	std::cout << "Всего заработали: " << sum << " руб" << std::endl;
+	std::cout << "Зарплата водителя: " << sum / 4 << " руб" << std::endl;
+	std::cout << "Расходы на топливо: " << sum / 5 << " руб" << std::endl;
+	std::cout << "Налоги: " << sum / 5 << " руб" << std::endl;
+	std::cout << "Расходы на ремонт машины: " << sum / 5 << " руб" << std::endl;
+	int money = sum - (sum / 4) - ((sum / 5) * 3);
+	std::cout << "Итого доход: " << money << " руб" << std::endl;
+
+	std::cout << "\nСпасибо за вашу работу! ";
+	}
