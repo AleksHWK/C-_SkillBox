@@ -1,0 +1,22 @@
+#include <iostream>
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	std::cout << "Злостные вредители."<< "\n\n";
+
+	unsigned int beginHeight;
+	std::cout << "Введите начальную высоту бамбука в сантиметрах: ";
+	std::cin >> beginHeight;
+
+	unsigned int dailyGrowth;
+	std::cout << "Введите параметр роста бамбука в сантиметрах: ";
+	std::cin >> dailyGrowth;
+
+	unsigned int nightFade;
+	std::cout << "Введите размер съедаемого гусеницами бамбука за одну ночь в сантиметрах: ";
+	std::cin >> nightFade;
+
+	int totalHeight = beginHeight + (dailyGrowth - nightFade) * 2 + dailyGrowth / 2; 
+
+	std::cout << "Итоговая высота бамбука на середину 3 дня равна: " << totalHeight << " см.";
+}
