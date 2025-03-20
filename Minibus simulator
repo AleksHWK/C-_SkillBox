@@ -6,7 +6,7 @@ int main() {
 	std::cout << "Симулятор маршрутки!\n";
 
 	std::string stop1 = "Улица программистов";
-	std::string stop2 = "Улица программистов";
+	std::string stop2 = "Проезд багов";
 	std::string stop3 = "Проспект алгоритмов";
 	std::string stop4 = "Конечная";
 	
