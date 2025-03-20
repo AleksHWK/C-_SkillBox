@@ -10,23 +10,23 @@ int main() {
 	std::string stop3 = "Проспект алгоритмов";
 	std::string stop4 = "Конечная";
 	
-	int passengers;
+	unsigned int passengers;
 	std::cout << "\nВведите начальное количество пассажиров: ";
 	std::cin >> passengers;
 
-	int totalPassenger = 0;
-	int sum = 0;
+	unsigned int totalPassenger = 0;
+	unsigned int sum = 0;
 	const int ticketPrice = 20;
 
 	std::cout << "-----Едем-----\n";
 	std::cout << "Прибываем на остановку: " << stop1 << ". В салоне пассажиров: " << passengers << std::endl;
 
 	std::cout << "Введите количество вышедших пассажиров: ";
-	int exitedPassengers = 0;
+	unsigned int exitedPassengers = 0;
 	std::cin >> exitedPassengers;
 
 	std::cout << "Введите количество вошедших пассажиров: ";
-	int arrivalsPassengers = 0;
+	unsigned int arrivalsPassengers = 0;
 	std::cin >> arrivalsPassengers;
 
 	totalPassenger = passengers + arrivalsPassengers;
@@ -68,7 +68,7 @@ int main() {
 	std::cout << "Расходы на топливо: " << sum / 5 << " руб" << std::endl;
 	std::cout << "Налоги: " << sum / 5 << " руб" << std::endl;
 	std::cout << "Расходы на ремонт машины: " << sum / 5 << " руб" << std::endl;
-	int money = sum - (sum / 4) - ((sum / 5) * 3);
+	unsigned int money = sum - (sum / 4) - ((sum / 5) * 3);
 	std::cout << "Итого доход: " << money << " руб" << std::endl;
 
 	std::cout << "\nСпасибо за вашу работу! ";
