@@ -1,0 +1,16 @@
+#include <iostream>
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	std::cout << "Проверка на чётное число!\n\n";
+
+	int a;
+	std::cout << "Введите число: ";
+	std::cin >> a;
+
+	std::cout << "-----Проверяем----- \n";
+	if (a % 2 == 0) {
+		std::cout << "Число " << a << " - четное";
+	}else 
+		std::cout << "Число " << a << " - нечетное";
+}
