@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Полёт нормальный!-----" << endl;
+    int speed, height;
+
+    cout << "Введите значение скорости самолёта: ";
+    cin >> speed;
+
+    cout << "\nВведите высоту самолёта: ";
+    cin >> height;
+
+    if (speed >= 750 and speed <= 850 and height >= 9000 and height <= 9500) {
+        cout << "Самолёт летит правильным эшелоном!";
+    }
+    else {
+        cout << "Измените эшелон!!!";
+    }
+
+    return 0;
+}
