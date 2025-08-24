@@ -11,7 +11,7 @@ int main() {
 
     if (startDay < 1 or startDay > 7) {
         cout << "Ошибка!" << endl;
-        return 1;
+        return 0;
     }
 
     unsigned short int day;
