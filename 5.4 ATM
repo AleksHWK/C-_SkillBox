@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Банкомат!-----" << endl << endl;
+
+    unsigned int money;
+    int banknoteFiveThousand = 0;
+    int banknoteTwoThousand = 0;
+    int banknoteOneThousand = 0;
+    int banknoteFiveHundred = 0;
+    int banknoteTwoHundred = 0;
+    int banknoteOneHundred = 0;
+
+    cout << "Введите сумму для снятия: ";
+    cin >> money;
+
+    if (money > 150000) {
+        cout << "Ошибка! Максимальная сумма для снятия - 150 000 рублей." << endl;
+        return 0;
+    }
+
+    if (money % 100 != 0) {
+        cout << "Ошибка! Сумма должна быть кратной 100 рублям." << endl;
+        return 0;
+    }
+
+    if (money >= 5000) {
+        banknoteFiveThousand = money / 5000;
+        money %= 5000;
+    }
+
+    if (money >= 2000) {
+        banknoteTwoThousand = money / 2000;
+        money %= 2000;
+    }
+
+    if (money >= 1000) {
+        banknoteOneThousand = money / 1000;
+        money %= 1000;
+    }
+
+    if (money >= 500) {
+        banknoteFiveHundred = money / 500;
+        money %= 500;
+    }
+
+    if (money >= 200) {
+        banknoteTwoHundred = money / 200;
+        money %= 200;
+    }
+
+    if (money >= 100) {
+        banknoteOneHundred = money / 100;
+        money %= 100;
+    }
+
+    cout << "Купюр выдано:" << endl;
+    if (banknoteFiveThousand > 0)
+        cout << "Пять тысяч: " << banknoteFiveThousand << endl;
+    if (banknoteTwoThousand > 0)
+        cout << "Две тысячи: " << banknoteTwoThousand << endl;
+    if (banknoteOneThousand > 0)
+        cout << "Одна тысяча: " << banknoteOneThousand << endl;
+    if (banknoteFiveHundred > 0)
+        cout << "Пятьсот: " << banknoteFiveHundred << endl;
+    if (banknoteTwoHundred > 0)
+        cout << "Двести: " << banknoteTwoHundred << endl;
+    if (banknoteOneHundred > 0)
+        cout << "Сто: " << banknoteOneHundred << endl;
+
+    return 0;
+}
