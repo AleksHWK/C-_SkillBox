@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Кукушка------" << endl;
+    
+    int time;
+    cout << "Введите время: ";
+    cin >> time;
+    if (time < 0 or time > 12) {
+        cout << "Ошибка.";
+        return 0;
+    }
+    else {
+        int i = 0;
+        while (time > i) {
+            cout << "Ку Ку" << endl;
+            i++;
+        }
+    }
+
+    return 0;
+}
