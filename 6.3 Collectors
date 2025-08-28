@@ -1,29 +1,52 @@
 #include <iostream>
-
 using namespace std;
-
 
 int main() {
     setlocale(LC_ALL, "rus");
     cout << "-----Коллекторы------" << endl;
-    
-    int score, credit;
+
+    int balance = 0;
     string name;
     cout << "Введите имя клиента: ";
     cin >> name;
-    cout << "Введите баланс клиента: ";
-    cin >> score;
-    int i = 1;
-    int deposit = 0;
-        while (score < 0) {
-            cout << "Внимание, нужно погасить задолжность! Текущая задолжность: "<< score << endl;
-            cout << "Введите сумму: ";
-            cin >> deposit;
-            if (deposit < 0) cout << "Ошибка, у вас задолжность!" << endl; 
+    
+    int debt;
+    cout << "Введите долг клиента: ";
+    cin >> debt;
+
+    if (debt < 0) {
+        cout << "Ошибка! Долг не может быть отрицательным.";
+        return 0;
+    }
+    else if (debt == 0) {
+        cout << "У клиента нет задолжностей!";
+        return 0;
+    }
+    else {
+        int payment = 0;
+        
+        while (debt > 0) {
+            cout << "Внимание, нужно погасить задолженность! Текущая задолженность: " << debt << endl;
+            cout << "Введите сумму платежа: ";
+            cin >> payment;
+            
+            if (payment < 0) {
+                cout << "Ошибка, отрицательный платеж!" << endl;
+            }
+            else if (payment <= debt) {
+                debt -= payment;
+                cout << "Принято: " << payment << " рублей" << endl;
+            }
             else {
-                score += deposit;
+                int overpayment = payment - debt;
+                balance += overpayment;
+                debt = 0;
+                cout << "Принято: " << payment << " рублей" << endl;
+                cout << "Долг погашен! Переплата: " << overpayment << " рублей" << endl;
             }
         }
-        cout << "Текущий баланс: " << score;
-    return 0;
+        
+        cout << "Вы погасили долг! Остаток на счёте: " << balance;
+        return 0;
+    }
 }
