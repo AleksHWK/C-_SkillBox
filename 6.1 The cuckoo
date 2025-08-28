@@ -8,16 +8,16 @@ int main() {
     setlocale(LC_ALL, "rus");
     cout << "-----Кукушка------" << endl;
     
-    int time;
+    int temp;
     cout << "Введите время: ";
-    cin >> time;
-    if (time < 0 or time > 12) {
+    cin >> temp;
+    if (temp < 0 or temp > 12) {
         cout << "Ошибка.";
         return 0;
     }
     else {
         int i = 0;
-        while (time > i) {
+        while (temp > i) {
             cout << "Ку Ку" << endl;
             i++;
         }
