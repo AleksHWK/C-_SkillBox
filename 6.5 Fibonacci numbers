@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Числа Фибоначчи------" << endl;
+    
+    int N;
+    cout << "Введите номер последовательности: ";
+    cin >> N;
+    
+    if (N <= 0) {
+        cout << "Ошибка! Номер должен быть положительным" << endl;
+        return 1;
+    }
+    
+    if (N > 46) {
+        cout << "Ошибка! Для N > 46 число превысит максимальное значение int" << endl;
+        return 1;
+    }
+    
+    int number1 = 1, number2 = 1, result = 1;
+    
+    if (N == 1 || N == 2) {
+        result = 1;
+    } else {
+        int i = 3;
+        while (i <= N) {
+            result = number1 + number2;
+            number1 = number2;
+            number2 = result;
+            i++;
+        }
+    }
+    
+    cout << "Число в последовательности: " << result;
+    return 0;
+}
