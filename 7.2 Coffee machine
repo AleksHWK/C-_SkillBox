@@ -20,28 +20,28 @@ int main() {
         cout << "Выберите напиток (1 — американо, 2 — латте): ";
         cin >> start;
 
-            if (start == 1) {
-                if (water < 300) cout << "Не достаточно воды!"; 
-                else {
-                    water -= 300;
-                    cout << "Ваш напиток готов." << endl;
-                    americano++;
-                }
-            }
-            else if (start == 2) {
-                if (milk < 270) cout << "Не достаточно молока!";
-                else {
-                    water -= 30;
-                    milk -= 270;
-                    cout << "Ваш напиток готов." << endl;
-                    latte++;
-                }
-            }
+        if (start == 1) {
+            if (water < 300) cout << "Не достаточно воды!";
             else {
-                cout << "Ошибка ввода!" << endl;
+                water -= 300;
+                cout << "Ваш напиток готов." << endl << endl;
+                americano++;
             }
-    cout << "Осталось воды: " << water << " мл" << endl;
-    cout << "Осталось молока: " << milk << " мл" << endl;
+        }
+        else if (start == 2) {
+            if (milk < 270) cout << "Не достаточно молока!" << endl;
+            else {
+                water -= 30;
+                milk -= 270;
+                cout << "Ваш напиток готов." << endl << endl;
+                latte++;
+            }
+        }
+        else {
+            cout << "Ошибка ввода!" << endl;
+        }
+        cout << "Осталось воды: " << water << " мл" << endl;
+        cout << "Осталось молока: " << milk << " мл" << endl;
     }
 
     cout << "-----Отчёт-----" << endl;
