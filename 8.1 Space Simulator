@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Космический симулятор------" << endl;
+
+    float m;
+    cout << "Введите массу ракеты: ";
+    cin >> m;
+    if (m == 0 or m < 0) { 
+        cout << "Ошибка, неправильная масса!"; 
+        return 1; 
+    }
+    float F;
+    cout << "Введите силу тяги двигателя: ";
+    cin >> F;
+    float t;
+    cout << "Введите время работы двигателя: ";
+    cin >> t;
+    if (t < 0) {
+        cout << "Ошибка, отрицательное время!";
+        return 1;
+    }
+    else if (t == 0) {
+        cout << "Время 0, Серёзно?";
+        return 1; 
+    }
+
+    cout << "Итоговое расстояние: " << ((F / m) * pow(t , 2)) / 2 ;
+    return 0;
+}
