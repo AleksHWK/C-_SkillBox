@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Запасы продовольствия!-----" << endl;
+    int buckwheat = 100;
+    int temp = 1;
+    for (; buckwheat > 0; temp++) {
+        buckwheat -= 4;
+        if (buckwheat <= 0) break;
+        cout << "После " << temp << " месяца у вас в запасе останется " << buckwheat << " кг гречки" << endl;
+    }
+    cout << "После " << temp << " месяца гречка закончится";
+    return 0;
+}
