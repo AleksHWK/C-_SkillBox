@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Важные объявления!-----" << endl;
+
+    int header;
+    cout << "Введите общую длину колонтитула: ";
+    cin >> header;
+
+    int sign;
+    cout << "Введите кол-во восклицательных знаков: ";
+    cin >> sign;
+
+    int left_tildas = (header - sign) / 2;
+    int right_tildas = header - sign - left_tildas;
+
+    for (int i = 0; i < header; i++) {
+        if (i < left_tildas) {
+            cout << "~";
+        }
+        else if (i < left_tildas + sign) {
+            cout << "!";
+        }
+        else {
+            cout << "~";
+        }
+    }
+
+    return 0;
+}
