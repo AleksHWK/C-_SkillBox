@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Immolate Improved!-----" << endl;
+
+    float health;
+    cout << "Введите кол-во здоровья орка(от 0 до 1): ";
+    cin >> health;
+
+    if (health < 0 or health > 1) {
+        cout << "Ошибка ввода здоровья!";
+        return 1;
+    }
+
+    float resistance;
+    cout << "Введите уровень сопративления магии(от 0 до 1): ";
+    cin >> resistance;
+
+    if (resistance < 0 or resistance > 1) {
+        cout << "Ошибка ввода сопративления магии!";
+        return 1;
+    }
+
+    float fireBall;
+
+    while (health > 0) {
+        cout << "Введите силу заклинания(от 0 до 1): ";
+        cin >> fireBall;
+        if (fireBall < 0 or fireBall > 1) {
+            cout << "Ошибка ввода урона!" << endl;
+        }
+        else {
+            health = health - (1 - resistance) * fireBall;
+            if (health < 0) health = 0;
+            cout << "Урон " << fireBall << ", сопротивляемость " << resistance << ", по орку будет нанесено " << (1 - resistance) * fireBall << " урона.";
+            cout << "Здоровье орка :" << health << endl;
+        }
+    }
+
+    cout << "Вы убили орка!";
+    return 0;
+}
