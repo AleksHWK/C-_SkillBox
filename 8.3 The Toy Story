@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Игрушечная история!-----" << endl;
+
+    float length, width, height;
+    cout << "Введите размеры бруска (длинна*ширина*высота):";
+    cin >> length >> width >> height;
+
+    if (length < 5 or width < 5 or height < 5) {
+        cout << "Брусок слишком мал для изготовления кубиков!" << endl;
+        return 1;
+    }
+
+    int sumCube = floor(length / 5) * floor(width / 5) * floor(height / 5);
+    if (sumCube < 8) {
+        cout << "Нельзя составить даже минимальный набор кубиков";
+        return 1;
+    }
+
+    int maxCube = 0;
+    for (int i = 1; pow(i, 3) <= sumCube; i++) {
+        maxCube = pow(i, 3);
+    }
+
+    cout << "Максимальный набор:" << maxCube << " из " << sumCube << " кубиков.";
+    return 0;
+}
