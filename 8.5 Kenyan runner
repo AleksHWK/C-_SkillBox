@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Кенийский бегун!-----" << endl;
+
+    int distance;
+    cout << "Привет, Сэм! Сколько километров ты сегодня пробежал? ";
+    cin >> distance;
+    
+    if (distance <= 0) {
+        cout << "Количество километров должно быть положительным!" << endl;
+        return 1;
+    }
+
+    int temp = 0;
+    int sumTemp = 0;
+
+    for (int i = 1; i <= distance; i++) {
+        cout << "Какой у тебя был темп на километре " << i << "? ";
+        cin >> temp;
+        
+        if (temp <= 0) {
+            cout << "Темп должен быть положительным!" << endl;
+            return 1;
+        }
+        
+        sumTemp += temp;
+    }
+
+    int averageSeconds = sumTemp / distance;
+    int minutes = averageSeconds / 60;
+    int seconds = averageSeconds % 60;
+
+    cout << "Твой средний темп за тренировку: " << minutes 
+         << " минуты " << seconds << " секунд.";
+    return 0;
+}
