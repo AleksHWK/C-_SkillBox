@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Убийца Steam!-----" << endl;
+
+    float fileSize;
+    cout << "Укажите размер файла для скачивания: ";
+    cin >> fileSize;
+    
+    float downloadSpeed;
+    cout << "Какова скорость вашего соединения? ";
+    cin >> downloadSpeed;
+
+    if (fileSize <= 0) {
+        cout << "Размер файла должен быть положительным!" << endl;
+        return 1;
+    }
+
+    if (downloadSpeed <= 0) {
+        cout << "Скорость соединения должна быть положительной!" << endl;
+        return 1;
+    }
+
+    int seconds = 0;
+    float downloaded = 0;
+    int percent = 0;
+
+    while (downloaded < fileSize) {
+        seconds++;
+        downloaded += downloadSpeed;
+        if (downloaded > fileSize) downloaded = fileSize;
+
+        percent = (downloaded / fileSize) * 100;
+        cout << "Прошло " << seconds << " сек. Скачано " << downloaded 
+             << " из " << fileSize << " МБ (" << percent << "%)" << endl;
+    }
+
+    cout << "Скачивание завершено за " << seconds << " секунд!" << endl;
+    return 0;
+}
