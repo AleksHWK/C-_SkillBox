@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Маятник-----" << endl;
+
+    float amplitude;
+    cout << "Введите амплитуду: ";
+    cin >> amplitude;
+
+    if (amplitude <= 0) {
+        cout << "Амплитуда должна быть положительной!" << endl;
+        return 1;
+    }
+
+    float inaccuracy;
+    cout << "Введите погрешность: ";
+    cin >> inaccuracy;
+
+    if (inaccuracy <= 0) {
+        cout << "Погрешность должна быть положительной!" << endl;
+        return 1;
+    }
+
+    if (amplitude <= inaccuracy) {
+        cout << "Кол-во колебаний: 0" << endl;
+        return 0;
+    }
+
+    int cycle = 0;
+    do {
+        amplitude = amplitude * (1 - 0.084f);
+        cycle++;
+    } while (amplitude > inaccuracy);
+
+    cout << "Кол-во колебаний: " << cycle;
+    return 0;
+}
