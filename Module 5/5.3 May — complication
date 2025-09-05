@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Выходные в мае!-----" << endl << endl;
+
+    int startDay;
+    cout << "Введите номер дня недели: ";
+    cin >> startDay;
+
+    if (startDay < 1 or startDay > 7) {
+        cout << "Ошибка!" << endl;
+        return 0;
+    }
+
+    unsigned short int day;
+    cout << "Введите дату: ";
+    cin >> day;
+
+    if (day > 31) {
+        cout << "Уже не май)" << endl;
+        return 0;
+    }
+
+    int dayOfWeek = (startDay + day - 2) % 7 + 1;
+
+    if (dayOfWeek == 6 || dayOfWeek == 7) {
+        cout << "Выходной!";
+    }
+    else {
+        cout << "Рабочий день!";
+    }
+
+    return 0;
+}
