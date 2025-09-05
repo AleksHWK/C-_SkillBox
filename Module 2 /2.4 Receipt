@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main(){
+int totalAmount = 4000000;
+  int entrances = 10;
+  int apartments = 40;
+  int сostForOneApartment = totalAmount / (entrances * apartments);
+  std::cout << "Приветствуем вас в калькуляторе квартплаты!\n";
+  std::cout << "Введите сумму, указанную в квитанции: " << totalAmount << "\n";
+  std::cout << "Сколько подъездов в вашем доме? " << entrances << "\n";
+  std::cout << "Сколько квартир в каждом подъезде? " << apartments << "\n";
+  std::cout << "-----Считаем-----\n";
+  std::cout << "Каждая квартира должна платить по " << сostForOneApartment << " руб. \n";
+  return 0;
+}
