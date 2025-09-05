@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	std::cout << "Складываем в уме.\n\n";
+
+	int a;
+	std::cout << "Введите первое число: ";
+	std::cin >> a;
+
+	int b;
+	std::cout << "Введите второе число: ";
+	std::cin >> b;
+
+	int sum;
+	std::cout << "Введите их сумму: ";
+	std::cin >> sum;
+
+	if (a + b == sum) {
+		std::cout << "Верно!";
+	}else 
+		std::cout << "Ошибка! Верный результат: " << a + b;
+}
