@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Грустное совершеннолетие!-----" << endl;
+
+    unsigned int todayDay, todayMonth, todayYear;
+    unsigned int birthDay, birthMonth, birthYear;
+
+    cout << "Введите текущий день: ";
+    cin >> todayDay;
+    cout << "Введите текущий месяц: ";
+    cin >> todayMonth;
+    cout << "Введите текущий год: ";
+    cin >> todayYear;
+
+    cout << "Введите день рождения: ";
+    cin >> birthDay;
+    cout << "Введите месяц рождения: ";
+    cin >> birthMonth;
+    cout << "Введите год рождения: ";
+    cin >> birthYear;
+
+    if (todayYear - birthYear > 18) {
+        cout << "Можно";
+    }
+    else if (todayYear - birthYear < 18) {
+        cout << "Нельзя";
+    }
+    else {
+        if (todayMonth > birthMonth) {
+            cout << "Можно";
+        }
+        else if (todayMonth < birthMonth) {
+            cout << "Нельзя";
+        }
+        else {
+            if (todayDay > birthDay) {
+                cout << "Можно";
+            }
+            else {
+                cout << "Нельзя";
+            }
+        }
+    }
+
+    return 0;
+}
