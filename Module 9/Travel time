@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+using namespace std;
+using std::cout;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Время в пути-----" << endl;
+
+    string timeOfDispatch, arrivalTime;
+    cout << "Введите время отправления(HH:MM): ";
+    getline(cin, timeOfDispatch);
+
+    cout << "Введите время прибытия(HH:MM): ";
+    getline(cin, arrivalTime);
+
+    if (timeOfDispatch.size() != 5 || arrivalTime.size() != 5) {
+        cout << "Ошибка: неверная длина времени";
+        return 1;
+    }
+    if (timeOfDispatch[2] != ':' || arrivalTime[2] != ':') {
+        cout << "Ошибка ввода, нет ':'!";
+        return 1;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        if (i != 2) {
+            if (timeOfDispatch[i] < '0' || timeOfDispatch[i] > '9') {
+                cout << "Ошибка ввода, не цифра в времени отправления!";
+                return 1;
+            }
+            if (arrivalTime[i] < '0' || arrivalTime[i] > '9') {
+                cout << "Ошибка ввода, не цифра в времени прибытия!";
+                return 1;
+            }
+        }
+    }
+
+    int departureHours = (timeOfDispatch[0] - '0') * 10 + (timeOfDispatch[1] - '0');
+    int departureMinutes = (timeOfDispatch[3] - '0') * 10 + (timeOfDispatch[4] - '0');
+    int arrivalHours = (arrivalTime[0] - '0') * 10 + (arrivalTime[1] - '0');
+    int arrivalMinutes = (arrivalTime[3] - '0') * 10 + (arrivalTime[4] - '0');
+
+    if (departureHours > 23 || departureHours < 0) {
+        cout << "Ошибка: неверные часы отправления";
+        return 1;
+    }
+    if (arrivalHours > 23 || arrivalHours < 0) {
+        cout << "Ошибка: неверные часы прибытия";
+        return 1;
+    }
+    if (departureMinutes > 59 || departureMinutes < 0) {
+        cout << "Ошибка: неверные минуты отправления";
+        return 1;
+    }
+    if (arrivalMinutes > 59 || arrivalMinutes < 0) {
+        cout << "Ошибка: неверные минуты прибытия";
+        return 1;
+    }
+
+    int totalDepartureMinutes = departureHours * 60 + departureMinutes;
+    int totalMinutesOfArrival = arrivalHours * 60 + arrivalMinutes;
+
+    int totalMinutesTravel = totalMinutesOfArrival - totalDepartureMinutes;
+    if (totalMinutesTravel < 0) {
+        totalMinutesTravel += 24 * 60;
+    }
+
+    int hours = totalMinutesTravel / 60;
+    int minutes = totalMinutesTravel % 60;
+
+    cout << "Поездка составила " << hours << " ч. " << minutes << " мин." << endl;
+
+    return 0;
+}
