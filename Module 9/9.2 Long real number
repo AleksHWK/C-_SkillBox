@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Проверка вещественного числа-----" << endl;
+    
+    string number;
+    cout << "Введите число: ";
+    getline(cin, number);
+    
+    if (number == "") {
+        cout << "No";
+        return 0;
+    }
+    
+    char first = number[0];
+    if (first != '-' && first != '.' && (first < '0' || first > '9')) {
+        cout << "No";
+        return 0;
+    }
+    
+    int dotCount = 0;
+    int digitCount = 0;
+    
+    for (int i = 0; i < number.size(); i++) {
+        char symbol = number[i];
+        
+        if (symbol == '.') {
+            dotCount++;
+        }
+        else if (symbol >= '0' && symbol <= '9') {
+            digitCount++;
+        }
+        else if (symbol != '-') {
+            cout << "No";
+            return 0;
+        }
+    }
+    
+    if (dotCount > 1) {
+        cout << "No";
+    }
+    else if (digitCount == 0) {
+        cout << "No";
+    }
+    else {
+        cout << "Yes";
+    }
+    
+    return 0;
+}
