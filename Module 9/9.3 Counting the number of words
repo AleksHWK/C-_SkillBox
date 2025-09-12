@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    cout << "-----Подсчёт количества слов-----" << endl;
+
+    string text;
+    cout << "Введите строку: ";
+    getline(cin, text);
+    int wordCount = 0;
+
+    if (text.empty()) {
+        cout << "Ответ: " << wordCount;
+        return 0;
+    }
+    bool inWord = false;
+    for (int i = 0; i < text.size(); i++) {
+        if (text[i] != ' ') {          
+            if (!inWord) {            
+                wordCount++;           
+                inWord = true;         
+            }
+        }
+        else {                       
+            inWord = false;            
+        }
+    }
+
+    cout << "Ответ: " << wordCount;
+
+    return 0;
+}
