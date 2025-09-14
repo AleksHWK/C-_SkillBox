@@ -1,0 +1,108 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool isValidLocalChar(char c) {
+    string valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.#$%&'*+/=?^_`{|}~!";
+    for (int i = 0; i < valid_chars.size(); i++) {
+        if (c == valid_chars[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool isValidDomainChar(char c) {
+    string valid_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.";
+    for (int i = 0; i < valid_chars.size(); i++) {
+        if (c == valid_chars[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool checkEmail(string email) {
+    int at_count = 0;
+    int at_position = -1;
+    
+    for (int i = 0; i < email.size(); i++) {
+        if (email[i] == '@') {
+            at_count++;
+            at_position = i;
+        }
+    }
+    
+    if (at_count != 1) {
+        return false;
+    }
+    
+    string part1;
+    string part2;
+    
+    for (int i = 0; i < at_position; i++) {
+        part1 += email[i];
+    }
+    
+    if (part1.size() < 1 || part1.size() > 64) {
+        return false;
+    }
+    
+    if (part1[0] == '.' || part1[part1.size() - 1] == '.') {
+        return false;
+    }
+    
+    for (int i = at_position + 1; i < email.size(); i++) {
+        part2 += email[i];
+    }
+    
+    if (part2.size() < 1 || part2.size() > 63) {
+        return false;
+    }
+    
+    if (part2[0] == '.' || part2[part2.size() - 1] == '.') {
+        return false;
+    }
+    
+    for (int i = 0; i < part1.size() - 1; i++) {
+        if (part1[i] == '.' && part1[i + 1] == '.') {
+            return false;
+        }
+    }
+    
+    for (int i = 0; i < part2.size() - 1; i++) {
+        if (part2[i] == '.' && part2[i + 1] == '.') {
+            return false;
+        }
+    }
+    
+    for (int i = 0; i < part1.size(); i++) {
+        if (!isValidLocalChar(part1[i])) {
+            return false;
+        }
+    }
+    
+    for (int i = 0; i < part2.size(); i++) {
+        if (!isValidDomainChar(part2[i])) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    cout << "-----Проверка корректности email-адреса-----" << endl;
+    cout << "Введите email: ";
+    
+    string email;
+    cin >> email;
+    
+    if (checkEmail(email)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+    
+    return 0;
+}
